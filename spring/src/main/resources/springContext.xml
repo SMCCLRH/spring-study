@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--  无参构造 创建bean  -->
+    <bean id="user" class="com.example.mt.pojo.User" name="user,user2" scope="singleton">
+<!--    scope默认单例    -->
+        <property name="id" value="1"/>
+        <property name="name" value="chx"/>
+    </bean>
+
+<!--  有参构造 创建对象  -->
+<!--  下标  -->
+    <bean id="customer" class="com.example.mt.pojo.Customer" name="customer">
+        <constructor-arg index="0" value="1"/>
+        <constructor-arg index="1" value="chx"/>
+    </bean>
+<!--  类型  -->
+    <bean id="customer2" class="com.example.mt.pojo.Customer2" name="customer2">
+        <constructor-arg type="java.lang.Integer" value="1"/>
+        <constructor-arg type="java.lang.String" value="chx"/>
+    </bean>
+<!--  参数名  -->
+    <bean id="customer3" class="com.example.mt.pojo.Customer3" name="customer3">
+        <constructor-arg name="id" value="1"/>
+        <constructor-arg name="name" value="chx"/>
+    </bean>
+<!--   name\alias 别名  -->
+    <alias name="user" alias="uuu"></alias>
+
+<!-- 导入合并   -->
+    <import resource="bean.xml"/>
+</beans>
